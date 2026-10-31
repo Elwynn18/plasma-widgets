@@ -1,0 +1,60 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the plasma_applet_io.github.elwynn18.hello package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: plasma_applet_io.github.elwynn18.hello\n"
+"Report-Msgid-Bugs-To: https://github.com/Elwynn18/plasma-widgets/issues\n"
+"POT-Creation-Date: 2026-10-31 11:35+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: contents/config/config.qml:26
+msgctxt "@title"
+msgid "General"
+msgstr ""
+
+#: contents/ui/configGeneral.qml:31
+msgctxt "@label:textbox"
+msgid "Message:"
+msgstr ""
+
+#: contents/ui/configGeneral.qml:36
+msgctxt "@option:check"
+msgid "Show click counter"
+msgstr ""
+
+#: contents/ui/configGeneral.qml:43
+msgctxt "@label:listbox"
+msgid "Language:"
+msgstr ""
+
+#: contents/ui/configGeneral.qml:46
+msgctxt "@item language"
+msgid "Automatic (system language)"
+msgstr ""
+
+#. Tooltip shown when hovering the widget in a panel
+#: contents/ui/main.qml:38
+msgctxt "@title"
+msgid "Hello"
+msgstr ""
+
+#: contents/ui/main.qml:71
+msgid "Clicked once"
+msgid_plural "Clicked %1 times"
+msgstr[0] ""
+msgstr[1] ""
+
+#: contents/ui/main.qml:77
+msgid "Click me"
+msgstr ""

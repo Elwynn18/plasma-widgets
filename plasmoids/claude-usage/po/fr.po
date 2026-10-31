@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_io.github.elwynn18.claudeusage\n"
 "Report-Msgid-Bugs-To: https://github.com/Elwynn18/plasma-widgets/issues\n"
-"POT-Creation-Date: 2026-10-31 10:59+0100\n"
+"POT-Creation-Date: 2026-10-31 11:33+0100\n"
 "PO-Revision-Date: 2026-10-31 11:00+0100\n"
 "Last-Translator: Elwynn18 <oursbleu18@gmail.com>\n"
 "Language-Team: French\n"
@@ -202,7 +202,7 @@ msgctxt "@label:listbox"
 msgid "Language:"
 msgstr "Langue :"
 
-#: contents/ui/configAppearance.qml:220
+#: contents/ui/configAppearance.qml:218
 msgctxt "@item language"
 msgid "Automatic (system language)"
 msgstr "Automatique (langue du système)"

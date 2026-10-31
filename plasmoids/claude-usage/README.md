@@ -23,7 +23,7 @@ It shows the same numbers as the `/usage` command of Claude Code and the
 - Refreshes every 5 minutes (adjustable), when the popup opens, and right after a limit resets;
   middle-click to refresh now
 - Text color: automatic (follows the panel theme), light, dark or custom
-- English and French, chosen in the settings (or the system language)
+- English, French, Spanish and Norwegian, chosen in the settings (or the system language)
 
 ## Requirements
 

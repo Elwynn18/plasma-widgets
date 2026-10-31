@@ -215,12 +215,8 @@ KCM.SimpleKCM {
             Kirigami.FormData.label: i18nc("@label:listbox", "Language:")
             textRole: "text"
             valueRole: "value"
-            // Language names are written in their own language, so anyone can find theirs
-            model: [
-                { value: "auto", text: i18nc("@item language", "Automatic (system language)") },
-                { value: "en",   text: "English" },
-                { value: "fr",   text: "Français" }
-            ]
+            model: [{ value: "auto", text: i18nc("@item language", "Automatic (system language)") }]
+                   .concat(I18n.languageChoices)
             currentIndex: Math.max(0, model.findIndex(item => item.value === page.cfg_language))
             onActivated: page.cfg_language = currentValue
         }

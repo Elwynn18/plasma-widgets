@@ -13,7 +13,16 @@
 .pragma library
 .import "translations.js" as Translations
 
-// Index of the plural form to use, per language (same rules as the .po files)
+// Languages offered in the settings, after "Automatic". Names are written in their own language.
+const languageChoices = [
+    { value: "en", text: "English" },
+    { value: "fr", text: "Français" },
+    { value: "es", text: "Español" },
+    { value: "nb", text: "Norsk bokmål" },
+]
+
+// Index of the plural form to use, per language (same rules as the .po files).
+// Languages not listed use the English rule (n != 1), like Spanish and Norwegian.
 const pluralRules = {
     fr: n => (n > 1 ? 1 : 0),
 }

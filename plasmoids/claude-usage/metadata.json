@@ -9,13 +9,17 @@
         ],
         "Category": "System Information",
         "Description": "Your Claude plan usage (5-hour session and week) at a glance in the panel",
+        "Description[es]": "El uso de tu plan de Claude (sesión de 5 h y semana) de un vistazo en el panel",
         "Description[fr]": "L'utilisation de votre forfait Claude (session de 5 h et semaine) d'un coup d'œil dans le panneau",
+        "Description[nb]": "Bruken av Claude-abonnementet ditt (5-timers økt og uke) med et blikk i panelet",
         "Icon": "office-chart-ring",
         "Id": "io.github.elwynn18.claudeusage",
         "License": "GPL-2.0-or-later",
         "Name": "Claude Usage",
+        "Name[es]": "Uso de Claude",
         "Name[fr]": "Utilisation de Claude",
-        "Version": "0.1.0",
+        "Name[nb]": "Claude-bruk",
+        "Version": "0.2.0",
         "Website": "https://github.com/Elwynn18/plasma-widgets"
     },
     "X-Plasma-API-Minimum-Version": "6.0"

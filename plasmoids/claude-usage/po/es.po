@@ -1,0 +1,366 @@
+# Spanish translation of the Claude Usage widget.
+# SPDX-FileCopyrightText: 2026 Elwynn18 <oursbleu18@gmail.com>
+# SPDX-License-Identifier: GPL-2.0-or-later
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: plasma_applet_io.github.elwynn18.claudeusage\n"
+"Report-Msgid-Bugs-To: https://github.com/Elwynn18/plasma-widgets/issues\n"
+"POT-Creation-Date: 2026-10-31 11:33+0100\n"
+"PO-Revision-Date: 2026-10-31 10:59+0100\n"
+"Last-Translator: Elwynn18 <oursbleu18@gmail.com>\n"
+"Language-Team: Spanish\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: contents/config/config.qml:26
+msgctxt "@title"
+msgid "Appearance"
+msgstr "Apariencia"
+
+#: contents/config/config.qml:31
+msgctxt "@title"
+msgid "Data"
+msgstr "Datos"
+
+#: contents/ui/FullView.qml:36 contents/ui/main.qml:54
+msgctxt "@title"
+msgid "Claude usage"
+msgstr "Uso de Claude"
+
+#: contents/ui/FullView.qml:69
+msgctxt "@action:button"
+msgid "Refresh"
+msgstr "Actualizar"
+
+#: contents/ui/FullView.qml:78
+msgctxt "@action:button"
+msgid "Settings…"
+msgstr "Configuración…"
+
+#: contents/ui/FullView.qml:96
+msgctxt "@label"
+msgid "Session (5 hours)"
+msgstr "Sesión (5 horas)"
+
+#: contents/ui/FullView.qml:99 contents/ui/main.qml:61
+msgid "No session in progress"
+msgstr "Ninguna sesión en curso"
+
+#: contents/ui/FullView.qml:105
+msgctxt "@label"
+msgid "Week"
+msgstr "Semana"
+
+#: contents/ui/FullView.qml:119
+msgctxt "@label weekly limit for a given model, %1 is the model name"
+msgid "Week · %1"
+msgstr "Semana · %1"
+
+#: contents/ui/FullView.qml:132
+msgctxt "@label"
+msgid "This week's usage by app"
+msgstr "Uso de esta semana por aplicación"
+
+#: contents/ui/FullView.qml:182
+msgctxt "@label app name and percentage"
+msgid "%1 %2%"
+msgstr "%1 %2 %"
+
+#: contents/ui/FullView.qml:196
+msgctxt "@info"
+msgid "Updated %1"
+msgstr "Actualizado %1"
+
+#: contents/ui/FullView.qml:204
+msgctxt "@action:button"
+msgid "Details"
+msgstr "Detalles"
+
+#: contents/ui/FullView.qml:207
+msgctxt "@info:tooltip"
+msgid "Open the usage page on claude.ai"
+msgstr "Abrir la página de uso en claude.ai"
+
+#: contents/ui/UsageMeter.qml:37 contents/ui/configAppearance.qml:197
+#: contents/ui/configAppearance.qml:207 contents/ui/designs/Bars.qml:74
+#: contents/ui/designs/TextOnly.qml:50
+msgctxt "@label percentage, %1 is a number"
+msgid "%1%"
+msgstr "%1 %"
+
+#: contents/ui/configAppearance.qml:68
+msgctxt "@label"
+msgid "Design:"
+msgstr "Diseño:"
+
+#: contents/ui/configAppearance.qml:76
+msgctxt "@item design"
+msgid "Rings"
+msgstr "Anillos"
+
+#: contents/ui/configAppearance.qml:77
+msgctxt "@item design"
+msgid "Twin rings"
+msgstr "Anillos gemelos"
+
+#: contents/ui/configAppearance.qml:78
+msgctxt "@item design"
+msgid "Bars"
+msgstr "Barras"
+
+#: contents/ui/configAppearance.qml:79
+msgctxt "@item design"
+msgid "Text"
+msgstr "Texto"
+
+#: contents/ui/configAppearance.qml:132
+msgctxt "@option:check"
+msgid "Show “5h” and “7d” labels"
+msgstr "Mostrar las etiquetas «5h» y «7d»"
+
+#: contents/ui/configAppearance.qml:140
+msgctxt "@label:listbox"
+msgid "Color:"
+msgstr "Color:"
+
+#: contents/ui/configAppearance.qml:147
+msgctxt "@item color"
+msgid "Terracotta"
+msgstr "Terracota"
+
+#: contents/ui/configAppearance.qml:148
+msgctxt "@item color"
+msgid "Theme accent color"
+msgstr "Color de acento del tema"
+
+#: contents/ui/configAppearance.qml:149
+msgctxt "@item color"
+msgid "Green"
+msgstr "Verde"
+
+#: contents/ui/configAppearance.qml:150
+msgctxt "@item color"
+msgid "Custom…"
+msgstr "Personalizado…"
+
+#: contents/ui/configAppearance.qml:159
+msgctxt "@title:window"
+msgid "Choose a Color"
+msgstr "Elegir un color"
+
+#: contents/ui/configAppearance.qml:164
+msgctxt "@label:listbox"
+msgid "Text color:"
+msgstr "Color del texto:"
+
+#: contents/ui/configAppearance.qml:170
+msgctxt "@item text color"
+msgid "Automatic (panel theme)"
+msgstr "Automático (tema del panel)"
+
+#: contents/ui/configAppearance.qml:171
+msgctxt "@item text color"
+msgid "Light"
+msgstr "Claro"
+
+#: contents/ui/configAppearance.qml:172
+msgctxt "@item text color"
+msgid "Dark"
+msgstr "Oscuro"
+
+#: contents/ui/configAppearance.qml:173
+msgctxt "@item text color"
+msgid "Custom…"
+msgstr "Personalizado…"
+
+#: contents/ui/configAppearance.qml:182
+msgctxt "@title:window"
+msgid "Choose a Text Color"
+msgstr "Elegir el color del texto"
+
+#: contents/ui/configAppearance.qml:188
+msgctxt "@option:check"
+msgid "Turn orange, then red, near the limit"
+msgstr "Pasar a naranja y luego a rojo cerca del límite"
+
+#: contents/ui/configAppearance.qml:193
+msgctxt "@label:spinbox"
+msgid "Orange from:"
+msgstr "Naranja a partir de:"
+
+#: contents/ui/configAppearance.qml:203
+msgctxt "@label:spinbox"
+msgid "Red from:"
+msgstr "Rojo a partir de:"
+
+#: contents/ui/configAppearance.qml:215
+msgctxt "@label:listbox"
+msgid "Language:"
+msgstr "Idioma:"
+
+#: contents/ui/configAppearance.qml:218
+msgctxt "@item language"
+msgid "Automatic (system language)"
+msgstr "Automático (idioma del sistema)"
+
+#: contents/ui/configData.qml:30
+msgctxt "@label:spinbox"
+msgid "Refresh every:"
+msgstr "Actualizar cada:"
+
+#: contents/ui/configData.qml:33
+msgctxt "@item:valuesuffix"
+msgid "%1 minute"
+msgid_plural "%1 minutes"
+msgstr[0] "%1 minuto"
+msgstr[1] "%1 minutos"
+
+#: contents/ui/configData.qml:39
+msgctxt "@label:textbox"
+msgid "Claude Code sign-in file:"
+msgstr "Archivo de inicio de sesión de Claude Code:"
+
+#: contents/ui/configData.qml:49
+msgid ""
+"This widget uses your Claude Code sign-in to show the same numbers as its /"
+"usage command. Your sign-in only goes to Anthropic's servers and is never "
+"stored by the widget. If the numbers stop updating, open Claude Code once to "
+"renew the sign-in."
+msgstr ""
+"Este widget usa tu inicio de sesión de Claude Code para mostrar las mismas "
+"cifras que su comando /usage. Tu inicio de sesión solo se envía a los "
+"servidores de Anthropic y el widget nunca lo guarda. Si las cifras dejan de "
+"actualizarse, abre Claude Code una vez para renovar el inicio de sesión."
+
+#: contents/ui/configData.qml:59
+msgid "Unofficial widget, not affiliated with Anthropic."
+msgstr "Widget no oficial, sin relación con Anthropic."
+
+#: contents/ui/designs/Bars.qml:38 contents/ui/designs/TextOnly.qml:63
+msgctxt "@label short for 5-hour session, keep very short"
+msgid "5h"
+msgstr "5h"
+
+#: contents/ui/designs/Bars.qml:39 contents/ui/designs/TextOnly.qml:73
+msgctxt "@label short for 7-day week, keep very short"
+msgid "7d"
+msgstr "7d"
+
+#: contents/ui/main.qml:57
+msgid "Loading…"
+msgstr "Cargando…"
+
+#: contents/ui/main.qml:60
+msgctxt "@info:tooltip"
+msgid "Session (5 h): %1% · %2"
+msgstr "Sesión (5 h): %1 % · %2"
+
+#: contents/ui/main.qml:62
+msgctxt "@info:tooltip"
+msgid "Week: %1% · %2"
+msgstr "Semana: %1 % · %2"
+
+#: contents/ui/main.qml:80
+msgctxt "@action"
+msgid "Refresh"
+msgstr "Actualizar"
+
+#: contents/ui/main.qml:220
+msgctxt "@info duration: days and hours"
+msgid "%1d %2h"
+msgstr "%1 d %2 h"
+
+#: contents/ui/main.qml:223
+msgctxt "@info duration: hours and minutes"
+msgid "%1h %2m"
+msgstr "%1 h %2 min"
+
+#: contents/ui/main.qml:225
+msgctxt "@info duration: minutes"
+msgid "%1 min"
+msgstr "%1 min"
+
+#: contents/ui/main.qml:243
+msgctxt "@info"
+msgid "Resetting…"
+msgstr "Reiniciando…"
+
+#: contents/ui/main.qml:245
+msgctxt "@info %1 is a duration, %2 a day and time"
+msgid "Resets in %1 · %2"
+msgstr "Se reinicia en %1 · %2"
+
+#: contents/ui/main.qml:252
+msgctxt "@info updated…"
+msgid "just now"
+msgstr "ahora mismo"
+
+#: contents/ui/main.qml:255
+msgctxt "@info updated…"
+msgid "%1 minute ago"
+msgid_plural "%1 minutes ago"
+msgstr[0] "hace %1 minuto"
+msgstr[1] "hace %1 minutos"
+
+#: contents/ui/main.qml:257
+msgctxt "@info updated…"
+msgid "%1 hour ago"
+msgid_plural "%1 hours ago"
+msgstr[0] "hace %1 hora"
+msgstr[1] "hace %1 horas"
+
+#: contents/ui/main.qml:262
+msgctxt "@label usage category"
+msgid "Chats"
+msgstr "Chats"
+
+#: contents/ui/main.qml:263
+msgctxt "@label usage category"
+msgid "Other"
+msgstr "Otros"
+
+#: contents/ui/main.qml:274
+msgid "Claude Code sign-in not found. Run “claude” in a terminal and sign in."
+msgstr ""
+"No se encontró el inicio de sesión de Claude Code. Ejecuta «claude» en una "
+"terminal e inicia sesión."
+
+#: contents/ui/main.qml:276
+msgid ""
+"Your Claude Code sign-in has expired. Open Claude Code once to renew it."
+msgstr ""
+"Tu inicio de sesión de Claude Code ha caducado. Abre Claude Code una vez "
+"para renovarlo."
+
+#: contents/ui/main.qml:278
+msgid "Cannot reach Anthropic's servers. Check your connection."
+msgstr ""
+"No se puede contactar con los servidores de Anthropic. Comprueba tu conexión."
+
+#: contents/ui/main.qml:280
+msgid "Too many requests. Trying again later."
+msgstr "Demasiadas solicitudes. Se volverá a intentar más tarde."
+
+#: contents/ui/main.qml:282
+msgid "The “curl” program is required. Install it with your package manager."
+msgstr "Se necesita el programa «curl». Instálalo con tu gestor de paquetes."
+
+#: contents/ui/main.qml:284
+msgid ""
+"The “jq” or “python3” program is required. Install one with your package "
+"manager."
+msgstr ""
+"Se necesita el programa «jq» o «python3». Instala uno de ellos con tu gestor "
+"de paquetes."
+
+#: contents/ui/main.qml:286
+msgid "Unexpected server response (HTTP %1)."
+msgstr "Respuesta inesperada del servidor (HTTP %1)."
+
+#: contents/ui/main.qml:288
+msgid "Could not read the usage data."
+msgstr "No se pudieron leer los datos de uso."

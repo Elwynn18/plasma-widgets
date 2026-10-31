@@ -8,11 +8,16 @@
 #                                             merge them into every po/<lang>.po, then build
 #   scripts/translations.sh build  <widget>   turn po/*.po into contents/code/translations.js,
 #                                             read by contents/code/i18n.js (commit this file)
+#   scripts/translations.sh check  <widget>   fail if a required language is missing or incomplete,
+#                                             or if the .po / translations.js files are out of date
 #
 # The widgets translate themselves (see i18n.js) instead of using Plasma's .mo files,
 # so that the language can be chosen in each widget's settings.
 
 source "$(dirname "$0")/common.sh"
+
+# Languages every widget must be translated into (see CONTRIBUTING.md)
+REQUIRED_LANGUAGES=(fr es nb)
 
 action="${1:-}"
 name="${2:-}"
@@ -20,12 +25,27 @@ dir="$(widget_dir "$name")"
 po_dir="$dir/po"
 domain="plasma_applet_$(widget_field "$dir" .KPlugin.Id)"
 
+# extract <output.pot>: collects the translatable strings of the widget
+extract() {
+    (cd "$dir" && find contents \( -name '*.qml' -o -name '*.js' \) ! -name translations.js | sort | xargs xgettext \
+        --from-code=UTF-8 --language=JavaScript --add-comments --sort-by-file \
+        -ki18n:1 -ki18nc:1c,2 -ki18np:1,2 -ki18ncp:1c,2,3 \
+        --package-name="$domain" --msgid-bugs-address="https://github.com/Elwynn18/plasma-widgets/issues" \
+        -o "$1")
+    # KDE placeholders (%1, %2) are not JavaScript printf formats
+    sed -i '/^#, javascript-format$/d; s/^#, javascript-format, /#, /; s/, javascript-format$//' "$1"
+    # Always UTF-8, even when the English strings happen to be plain ASCII
+    sed -i 's/charset=[A-Za-z0-9-]*\\n"/charset=UTF-8\\n"/' "$1"
+}
+
+# build [output.js]: writes the translations of every po/*.po as a JavaScript file
 build() {
+    local out="${1:-$dir/contents/code/translations.js}"
     [[ -d "$po_dir" && -f "$dir/contents/code/i18n.js" ]] || return 0
-    python3 -I - "$po_dir" "$dir/contents/code/translations.js" <<'PYTHON'
+    python3 -I - "$po_dir" "$out" "${1:+quiet}" <<'PYTHON'
 import ast, json, pathlib, sys
 
-po_dir, out = pathlib.Path(sys.argv[1]), pathlib.Path(sys.argv[2])
+po_dir, out, quiet = pathlib.Path(sys.argv[1]), pathlib.Path(sys.argv[2]), sys.argv[3]
 
 def entries(path):
     """Yields (context, msgid, [msgstr…]) for the translated, non-fuzzy entries of a .po file."""
@@ -63,20 +83,53 @@ out.write_text(
     "var catalogs = " + json.dumps(catalogs, ensure_ascii=False, indent=1, sort_keys=True) + "\n",
     encoding="utf-8",
 )
-print(f"built {out.name}: " + ", ".join(f"{lang} ({len(c)} strings)" for lang, c in catalogs.items()))
+if not quiet:
+    print(f"built {out.name}: " + ", ".join(f"{lang} ({len(c)} strings)" for lang, c in catalogs.items()))
 PYTHON
+}
+
+# check: prints one line per problem, returns 1 if there is any
+check() {
+    local tmp problems=0
+    tmp="$(mktemp -d)"
+    trap 'rm -rf "$tmp"' RETURN
+
+    [[ -f "$dir/contents/code/i18n.js" ]] \
+        || { echo "contents/code/i18n.js is missing (language setting, see plasmoids/hello)"; problems=1; }
+    grep -q '<entry name="language"' "$dir/contents/config/main.xml" 2>/dev/null \
+        || { echo "contents/config/main.xml has no \"language\" setting"; problems=1; }
+
+    extract "$tmp/template.pot"
+    for lang in "${REQUIRED_LANGUAGES[@]}"; do
+        local po="$po_dir/$lang.po"
+        if [[ ! -f "$po" ]]; then
+            echo "po/$lang.po is missing"; problems=1; continue
+        fi
+        msgfmt --check -o /dev/null "$po" 2>/dev/null \
+            || { echo "po/$lang.po is not valid (msgfmt --check)"; problems=1; continue; }
+        msgcmp --use-untranslated --use-fuzzy "$po" "$tmp/template.pot" >/dev/null 2>&1 \
+            || { echo "po/$lang.po is out of date: run scripts/translations.sh update $name"; problems=1; }
+        # e.g. "60 translated messages, 3 fuzzy translations, 4 untranslated messages."
+        local stats untranslated fuzzy
+        stats="$(LC_ALL=C LANGUAGE= msgfmt --statistics -o /dev/null "$po" 2>&1)"
+        untranslated="$(grep -o '[0-9]* untranslated' <<<"$stats" | grep -o '[0-9]*' || echo 0)"
+        fuzzy="$(grep -o '[0-9]* fuzzy' <<<"$stats" | grep -o '[0-9]*' || echo 0)"
+        (( untranslated > 0 )) && { echo "po/$lang.po has $untranslated untranslated string(s)"; problems=1; }
+        (( fuzzy > 0 )) && { echo "po/$lang.po has $fuzzy fuzzy string(s) to review"; problems=1; }
+    done
+
+    if [[ -f "$dir/contents/code/i18n.js" ]]; then
+        build "$tmp/translations.js"
+        cmp -s "$tmp/translations.js" "$dir/contents/code/translations.js" \
+            || { echo "contents/code/translations.js is out of date: run scripts/translations.sh build $name"; problems=1; }
+    fi
+    return $problems
 }
 
 case "$action" in
     update)
         mkdir -p "$po_dir"
-        (cd "$dir" && find contents -name '*.qml' -o -name '*.js' ! -name translations.js | sort | xargs xgettext \
-            --from-code=UTF-8 --language=JavaScript --add-comments --sort-by-file \
-            -ki18n:1 -ki18nc:1c,2 -ki18np:1,2 -ki18ncp:1c,2,3 \
-            --package-name="$domain" --msgid-bugs-address="https://github.com/Elwynn18/plasma-widgets/issues" \
-            -o "$po_dir/template.pot")
-        # KDE placeholders (%1, %2) are not JavaScript printf formats
-        sed -i '/^#, javascript-format$/d; s/^#, javascript-format, /#, /; s/, javascript-format$//' "$po_dir/template.pot"
+        extract "$po_dir/template.pot"
         for po in "$po_dir"/*.po; do
             [[ -e "$po" ]] || continue
             msgmerge --quiet --update --backup=none "$po" "$po_dir/template.pot"
@@ -87,7 +140,10 @@ case "$action" in
     build)
         build
         ;;
+    check)
+        check
+        ;;
     *)
-        die "usage: scripts/translations.sh update|build <widget>"
+        die "usage: scripts/translations.sh update|build|check <widget>"
         ;;
 esac

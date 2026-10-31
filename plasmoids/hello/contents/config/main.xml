@@ -18,5 +18,9 @@
             <label>Whether to show the click counter</label>
             <default>true</default>
         </entry>
+        <entry name="language" type="String">
+            <label>Language of the widget: auto (system language), en, fr, es or nb</label>
+            <default>auto</default>
+        </entry>
     </group>
 </kcfg>

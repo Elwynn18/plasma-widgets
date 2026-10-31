@@ -43,8 +43,8 @@ Requirements: Plasma 6, `kpackagetool6`, `jq`, `zip`. Recommended: `plasma-sdk` 
 | `scripts/install.sh <widget>` | Install or upgrade the widget for your user |
 | `scripts/uninstall.sh <widget>` | Remove it |
 | `scripts/new-widget.sh <name> "<Title>"` | Create a new widget from the `hello` template |
-| `scripts/lint.sh` | Check metadata and QML of every widget |
-| `scripts/translations.sh update <widget>` | Extract strings and update `po/<lang>.po` files |
+| `scripts/lint.sh` | Check every widget: metadata, QML, translations and KDE Store material |
+| `scripts/translations.sh update <widget>` | Extract strings and update `po/<lang>.po` files (`check` to verify) |
 | `scripts/package.sh [widget…]` | Build `.plasmoid` archives in `dist/` |
 
 ### Widget layout
@@ -52,8 +52,11 @@ Requirements: Plasma 6, `kpackagetool6`, `jq`, `zip`. Recommended: `plasma-sdk` 
 ```
 plasmoids/<name>/
 ├── metadata.json              # id, name, version, author, license…
-├── po/                        # translations (fr.po…), built into contents/code/translations.js
+├── STORE.md                   # KDE Store page: description, category, tags
+├── screenshots/               # logo.png (512×512) and presentation images
+├── po/                        # translations (fr, es, nb), built into contents/code/translations.js
 └── contents/
+    ├── code/i18n.js           # translations following the widget's Language setting
     ├── config/
     │   ├── main.xml           # settings schema (KConfigXT)
     │   └── config.qml         # settings pages list
