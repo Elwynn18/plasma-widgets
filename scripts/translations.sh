@@ -120,7 +120,7 @@ check() {
 
     if [[ -f "$dir/contents/code/i18n.js" ]]; then
         build "$tmp/translations.js"
-        cmp -s "$tmp/translations.js" "$dir/contents/code/translations.js" \
+        [[ "$(sha256sum < "$tmp/translations.js")" == "$(sha256sum < "$dir/contents/code/translations.js" 2>/dev/null)" ]] \
             || { echo "contents/code/translations.js is out of date: run scripts/translations.sh build $name"; problems=1; }
     fi
     return $problems
