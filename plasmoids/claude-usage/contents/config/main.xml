@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    SPDX-FileCopyrightText: 2026 Elwynn18 <oursbleu18@gmail.com>
+    SPDX-License-Identifier: GPL-2.0-or-later
+-->
+<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
+      http://www.kde.org/standards/kcfg/1.0/kcfg.xsd">
+    <kcfgfile name=""/>
+
+    <group name="Appearance">
+        <entry name="design" type="String">
+            <label>Panel design: rings, twinRings, bars or text</label>
+            <default>rings</default>
+        </entry>
+        <entry name="colorMode" type="String">
+            <label>Color: accent, terracotta, green or custom</label>
+            <default>terracotta</default>
+        </entry>
+        <entry name="customColor" type="Color">
+            <default>#D97757</default>
+        </entry>
+        <entry name="colorBySeverity" type="Bool">
+            <label>Turn orange then red when getting close to the limit</label>
+            <default>true</default>
+        </entry>
+        <entry name="warningThreshold" type="Int">
+            <default>70</default>
+            <min>1</min>
+            <max>100</max>
+        </entry>
+        <entry name="criticalThreshold" type="Int">
+            <default>90</default>
+            <min>1</min>
+            <max>100</max>
+        </entry>
+        <entry name="showLabels" type="Bool">
+            <label>Show the "5h" / "7d" labels in the panel</label>
+            <default>true</default>
+        </entry>
+        <entry name="textColorMode" type="String">
+            <label>Text color in the panel: auto (follows the panel theme), light, dark or custom</label>
+            <default>auto</default>
+        </entry>
+        <entry name="customTextColor" type="Color">
+            <default>#FFFFFF</default>
+        </entry>
+        <entry name="language" type="String">
+            <label>Language of the widget: auto (system language), en or fr</label>
+            <default>auto</default>
+        </entry>
+    </group>
+
+    <group name="Data">
+        <entry name="refreshMinutes" type="Int">
+            <default>5</default>
+            <min>1</min>
+            <max>60</max>
+        </entry>
+        <entry name="credentialsPath" type="String">
+            <label>Claude Code credentials file (empty = ~/.claude/.credentials.json)</label>
+            <default></default>
+        </entry>
+    </group>
+</kcfg>

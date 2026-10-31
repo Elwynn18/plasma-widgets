@@ -8,6 +8,7 @@
 source "$(dirname "$0")/common.sh"
 
 dir="$(widget_dir "${1:-}")"
+"$REPO_ROOT/scripts/translations.sh" build "$1"
 id="$(widget_field "$dir" .KPlugin.Id)"
 
 if kpackagetool6 --type Plasma/Applet --show "$id" >/dev/null 2>&1; then

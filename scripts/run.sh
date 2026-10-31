@@ -9,6 +9,7 @@
 source "$(dirname "$0")/common.sh"
 
 dir="$(widget_dir "${1:-}")"
+"$REPO_ROOT/scripts/translations.sh" build "$1"
 command -v plasmoidviewer >/dev/null \
     || die "plasmoidviewer not found. Install it with: sudo pacman -S plasma-sdk"
 

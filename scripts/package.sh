@@ -13,6 +13,7 @@ widgets=("$@")
 mkdir -p "$REPO_ROOT/dist"
 for name in "${widgets[@]}"; do
     dir="$(widget_dir "$name")"
+    "$REPO_ROOT/scripts/translations.sh" build "$name"
     id="$(widget_field "$dir" .KPlugin.Id)"
     version="$(widget_field "$dir" .KPlugin.Version)"
     out="$REPO_ROOT/dist/$id-$version.plasmoid"

@@ -4,6 +4,7 @@ A collection of open source widgets (plasmoids) for the **KDE Plasma 6** desktop
 
 | Widget | Description |
 | --- | --- |
+| [Claude Usage](plasmoids/claude-usage) | Your Claude plan usage (5-hour session and week) in the panel, with four designs |
 | [Hello](plasmoids/hello) | Example widget, used as the template for new widgets |
 
 ## Installing a widget
@@ -39,6 +40,7 @@ Requirements: Plasma 6, `kpackagetool6`, `jq`, `zip`. Recommended: `plasma-sdk` 
 | `scripts/uninstall.sh <widget>` | Remove it |
 | `scripts/new-widget.sh <name> "<Title>"` | Create a new widget from the `hello` template |
 | `scripts/lint.sh` | Check metadata and QML of every widget |
+| `scripts/translations.sh update <widget>` | Extract strings and update `po/<lang>.po` files |
 | `scripts/package.sh [widget…]` | Build `.plasmoid` archives in `dist/` |
 
 ### Widget layout
@@ -46,6 +48,7 @@ Requirements: Plasma 6, `kpackagetool6`, `jq`, `zip`. Recommended: `plasma-sdk` 
 ```
 plasmoids/<name>/
 ├── metadata.json              # id, name, version, author, license…
+├── po/                        # translations (fr.po…), built into contents/code/translations.js
 └── contents/
     ├── config/
     │   ├── main.xml           # settings schema (KConfigXT)
@@ -60,8 +63,8 @@ Widget ids use the `io.github.elwynn18.<name>` namespace (`org.kde.*` is reserve
 ### Releasing
 
 1. Bump `KPlugin.Version` in the widget's `metadata.json`.
-2. Tag and push: `git tag v0.2.0 && git push --tags`.
-3. The CI builds every widget and attaches the `.plasmoid` files to a GitHub release.
+2. Tag with the widget folder and version, then push: `git tag claude-usage-v0.2.0 && git push --tags`.
+3. The CI checks the version, builds that widget and attaches its `.plasmoid` file to a GitHub release.
    They can then be uploaded to the [KDE Store](https://store.kde.org/browse?cat=705).
 
 ### Useful documentation
