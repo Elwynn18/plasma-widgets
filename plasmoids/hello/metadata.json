@@ -1,0 +1,22 @@
+{
+    "KPackageStructure": "Plasma/Applet",
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "oursbleu18@gmail.com",
+                "Name": "Elwynn18"
+            }
+        ],
+        "Category": "Miscellaneous",
+        "Description": "Example widget and starting point for new widgets",
+        "Description[fr]": "Widget d'exemple et point de départ pour de nouveaux widgets",
+        "Icon": "face-smile",
+        "Id": "io.github.elwynn18.hello",
+        "License": "GPL-2.0-or-later",
+        "Name": "Hello",
+        "Name[fr]": "Bonjour",
+        "Version": "0.1.0",
+        "Website": "https://github.com/Elwynn18/plasma-widgets"
+    },
+    "X-Plasma-API-Minimum-Version": "6.0"
+}

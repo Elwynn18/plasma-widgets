@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    SPDX-FileCopyrightText: 2026 Elwynn18 <oursbleu18@gmail.com>
+    SPDX-License-Identifier: GPL-2.0-or-later
+-->
+<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
+      http://www.kde.org/standards/kcfg/1.0/kcfg.xsd">
+    <kcfgfile name=""/>
+
+    <group name="General">
+        <entry name="message" type="String">
+            <label>Message displayed by the widget</label>
+            <default>Hello, Plasma!</default>
+        </entry>
+        <entry name="showCounter" type="Bool">
+            <label>Whether to show the click counter</label>
+            <default>true</default>
+        </entry>
+    </group>
+</kcfg>

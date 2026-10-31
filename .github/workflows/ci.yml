@@ -1,0 +1,55 @@
+# SPDX-FileCopyrightText: 2026 Elwynn18 <oursbleu18@gmail.com>
+# SPDX-License-Identifier: GPL-2.0-or-later
+#
+# On every push / pull request: lint all widgets and build .plasmoid archives.
+# On a "v*" tag (e.g. v0.1.0): also publish the archives as a GitHub release.
+
+name: CI
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    # Arch Linux ships recent Qt 6 / Plasma 6, close to what users run.
+    container: archlinux:latest
+    steps:
+      - name: Install tools
+        run: pacman -Syu --noconfirm --needed qt6-declarative jq zip git
+
+      - uses: actions/checkout@v4
+
+      - name: Lint widgets
+        run: PATH="/usr/lib/qt6/bin:$PATH" bash scripts/lint.sh
+
+      - name: Build .plasmoid packages
+        run: bash scripts/package.sh
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: plasmoids
+          path: dist/*.plasmoid
+
+  release:
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: plasmoids
+          path: dist
+
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: dist/*.plasmoid
+          generate_release_notes: true

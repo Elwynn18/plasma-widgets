@@ -1,0 +1,19 @@
+# Packaged widgets (scripts/package.sh)
+dist/
+*.plasmoid
+
+# Build directories (if C++ plugins are added later)
+build/
+build-*/
+
+# QML tooling caches
+*.qmlc
+*.jsc
+.qmlls.ini
+
+# Editors / OS
+.vscode/
+.idea/
+*.user
+*~
+.DS_Store
