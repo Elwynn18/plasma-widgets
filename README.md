@@ -4,17 +4,21 @@ A collection of open source widgets (plasmoids) for the **KDE Plasma 6** desktop
 
 | Widget | Description |
 | --- | --- |
-| [Claude Usage](plasmoids/claude-usage) | Your Claude plan usage (5-hour session and week) in the panel, with four designs |
+| [Claude Usage](plasmoids/claude-usage) | Your Claude plan usage (5-hour session and week) in the panel, with four designs · [KDE Store](https://store.kde.org/p/2380745) |
 | [Hello](plasmoids/hello) | Example widget, used as the template for new widgets |
 
 ## Installing a widget
+
+### From Plasma
+
+Right-click the panel → *Add Widgets…* → *Get New Widgets…* → *Download New Plasma Widgets*, then search for the widget name.
 
 ### From a release
 
 Download a `.plasmoid` file from the [Releases](https://github.com/Elwynn18/plasma-widgets/releases) page, then:
 
 ```sh
-kpackagetool6 --type Plasma/Applet --install io.github.elwynn18.hello-0.1.0.plasmoid
+kpackagetool6 --type Plasma/Applet --install io.github.elwynn18.claudeusage-0.1.0.plasmoid
 ```
 
 Or right-click the desktop → *Add Widgets…* → *Get New Widgets…* → *Install Widget From Local File…*

@@ -1,3 +1,5 @@
+<img src="screenshots/logo.png" alt="" width="96" align="right">
+
 # Claude Usage
 
 See how much of your Claude plan you have used, right in the Plasma panel:
@@ -42,6 +44,14 @@ shows a warning: open Claude Code once and the numbers come back.
 This endpoint is the one Claude Code itself uses; it is not a public, documented API and may change.
 
 ## Install
+
+**From Plasma:** right-click the panel → *Add Widgets…* → *Get New Widgets…* →
+*Download New Plasma Widgets* → search for **Claude Usage**.
+
+It is also on the [KDE Store](https://store.kde.org/p/2380745), and each version is attached to the
+[GitHub releases](https://github.com/Elwynn18/plasma-widgets/releases).
+
+**From source:**
 
 ```sh
 scripts/install.sh claude-usage
