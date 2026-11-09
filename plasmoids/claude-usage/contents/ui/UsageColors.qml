@@ -8,11 +8,15 @@ import QtQuick
 import org.kde.kirigami as Kirigami
 
 // Colors used by the panel designs, the popup and the settings preview.
-// It must be placed inside the view that uses it: it is an Item (not a
-// QtObject) so that Kirigami.Theme follows the colors of that view's parent,
-// e.g. light text in a dark panel.
+// It must be placed inside the view that uses it, so that the theme colors are
+// those of that view, e.g. light text in a dark panel.
 Item {
     visible: false
+
+    // The theme is read from the visible view holding this object: in the panel,
+    // the theme of a hidden item can keep its default colors (all black).
+    property Item themeItem: parent
+    readonly property var theme: themeItem ? themeItem.Kirigami.Theme : Kirigami.Theme
 
     property string mode: "terracotta"   // accent | terracotta | green | custom
     property color customColor: "#D97757"
@@ -24,8 +28,8 @@ Item {
 
     readonly property color baseColor: {
         switch (mode) {
-        case "accent": return Kirigami.Theme.highlightColor
-        case "green":  return Kirigami.Theme.positiveTextColor
+        case "accent": return theme.highlightColor
+        case "green":  return theme.positiveTextColor
         case "custom": return customColor
         default:       return "#D97757"
         }
@@ -35,7 +39,7 @@ Item {
         case "light":  return "#FCFCFC"
         case "dark":   return "#232629"
         case "custom": return customTextColor
-        default:       return Kirigami.Theme.textColor
+        default:       return theme.textColor
         }
     }
     readonly property color dimTextColor: Qt.rgba(textColor.r, textColor.g, textColor.b, 0.6)
@@ -43,10 +47,10 @@ Item {
 
     function colorFor(percent) {
         if (bySeverity && percent >= critical) {
-            return Kirigami.Theme.negativeTextColor
+            return theme.negativeTextColor
         }
         if (bySeverity && percent >= warning) {
-            return Kirigami.Theme.neutralTextColor
+            return theme.neutralTextColor
         }
         return baseColor
     }

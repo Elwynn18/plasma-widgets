@@ -56,6 +56,7 @@ These apply to every new widget, and to existing widgets when they are updated.
   installed widget. Check `kpackagetool6 --type Plasma/Applet --show <id>` before asking for a Plasma restart.
 - Don't name a QML component `Palette` (clashes with QtQuick's type).
 - Objects reading `Kirigami.Theme` must sit inside the view they color (panel or popup), otherwise they get
-  the default light theme (black text on a dark panel).
+  the default light theme (black text on a dark panel). Read it from a visible item: in the panel, the theme
+  of a hidden item (`visible: false`) can keep its default colors, all black (`someItem.Kirigami.Theme`).
 - Rendering QML offscreen for images: `QT_QUICK_CONTROLS_STYLE=org.kde.desktop QT_QPA_PLATFORM=offscreen
   /usr/lib/qt6/bin/qml file.qml` with `grabToImage()`; give the colored items a `Kirigami.Theme.colorSet`.
