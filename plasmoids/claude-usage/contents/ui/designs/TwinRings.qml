@@ -30,11 +30,14 @@ Item {
         columns: design.vertical ? 1 : 2
         spacing: design.spacing
 
+        // A fixed count, not an array of values: the rings are kept across
+        // refreshes, so they slide from the previous value.
         Repeater {
-            model: [design.sessionPercent, design.weeklyPercent]
+            model: 2
 
             Item {
-                required property real modelData
+                required property int index
+                readonly property real modelData: index === 0 ? design.sessionPercent : design.weeklyPercent
                 width: design.side
                 height: design.side
 

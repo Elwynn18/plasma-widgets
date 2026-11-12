@@ -109,11 +109,14 @@ ColumnLayout {
     }
 
     // Model-specific weekly limits, when the plan has some
+    // Driven by the count, not the array (a new one on every refresh), so the
+    // meters are kept and their bars slide from the previous value.
     Repeater {
-        model: main.scopedLimits
+        model: main.scopedLimits.length
 
         UsageMeter {
-            required property var modelData
+            required property int index
+            readonly property var modelData: main.scopedLimits[index] || { name: "", percent: -1 }
             Layout.fillWidth: true
             small: true
             title: i18nc("@label weekly limit for a given model, %1 is the model name", "Week · %1", modelData.name)

@@ -21,7 +21,7 @@ Item {
 
     property real animatedFraction: fraction
     Behavior on animatedFraction {
-        NumberAnimation { duration: 600; easing.type: Easing.OutCubic }
+        NumberAnimation { duration: 900; easing.type: Easing.OutCubic }
     }
 
     Shape {

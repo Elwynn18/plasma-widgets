@@ -33,14 +33,17 @@ Item {
         anchors.margins: Math.round(Kirigami.Units.smallSpacing / 2)
         spacing: 0
 
+        // A fixed count, not an array of values: the rows (and their bars) are kept
+        // across refreshes, so the bars slide from the previous value instead of
+        // being recreated empty.
         Repeater {
-            model: [
-                { label: i18nc("@label short for 5-hour session, keep very short", "5h"), value: design.sessionPercent },
-                { label: i18nc("@label short for 7-day week, keep very short", "7d"), value: design.weeklyPercent }
-            ]
+            model: 2
 
             RowLayout {
-                required property var modelData
+                required property int index
+                readonly property var modelData: index === 0
+                    ? { label: i18nc("@label short for 5-hour session, keep very short", "5h"), value: design.sessionPercent }
+                    : { label: i18nc("@label short for 7-day week, keep very short", "7d"), value: design.weeklyPercent }
                 Layout.fillWidth: true
                 Layout.fillHeight: true
                 spacing: Kirigami.Units.smallSpacing
