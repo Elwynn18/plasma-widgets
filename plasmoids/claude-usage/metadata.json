@@ -19,7 +19,7 @@
         "Name[es]": "Uso de Claude",
         "Name[fr]": "Utilisation de Claude",
         "Name[nb]": "Claude-bruk",
-        "Version": "0.2.0",
+        "Version": "0.2.1",
         "Website": "https://github.com/Elwynn18/plasma-widgets"
     },
     "X-Plasma-API-Minimum-Version": "6.0"
